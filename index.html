@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Knowletive — Career · Education · Business</title>
+  <meta name="description" content="Knowletive — Expert career guidance, overseas education consulting, business consultation, and India's most impactful PEP training & internship program.">
+  <meta name="keywords" content="career guidance, overseas education, business consulting, admission counseling, internship, PEP program, professional development, knowletive">
+
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg:#0a0d14; --bg2:#0f1320; --surface:#141825; --surface2:#1a2035;
+      --border:rgba(255,255,255,0.07); --border2:rgba(255,255,255,0.12);
+      --text:#c8d0e0; --text-dim:#6b7a9a; --heading:#eef1f8;
+      --gold:#e8a034; --gold2:#f5c56a; --blue:#3d8ef0; --blue2:#6aaeff;
+      --glow-gold:rgba(232,160,52,0.18); --glow-blue:rgba(61,142,240,0.15);
+      --r:16px; --rl:24px;
+      /* --fh:'Syne',sans-serif; --fb:'DM Sans',sans-serif; */
+      --t:0.35s cubic-bezier(.4,0,.2,1);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--text);font-family:var(--fb);font-size:16px;line-height:1.7;overflow-x:hidden}
+    h1,h2,h3,h4,h5,h6{font-family:var(--fh);color:var(--heading);line-height:1.2}
+    a{text-decoration:none;color:var(--blue2);transition:var(--t)}
+    img{max-width:100%}
+    ::-webkit-scrollbar{width:5px}
+    ::-webkit-scrollbar-track{background:var(--bg)}
+    ::-webkit-scrollbar-thumb{background:var(--surface2);border-radius:10px}
+
+    .section{padding:100px 0;position:relative}
+    .container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+    .gtext{background:linear-gradient(135deg,var(--gold),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .gtextb{background:linear-gradient(135deg,var(--blue),var(--blue2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+    .pill{display:inline-flex;align-items:center;gap:7px;background:rgba(232,160,52,.1);border:1px solid rgba(232,160,52,.25);color:var(--gold);font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border-radius:50px;margin-bottom:20px}
+    .pill.b{background:rgba(61,142,240,.1);border-color:rgba(61,142,240,.25);color:var(--blue2)}
+
+    .sh{margin-bottom:60px}
+    .sh h2{font-size:clamp(2rem,4vw,3rem);font-weight:800;margin-bottom:14px}
+    .sh p{color:var(--text-dim);font-size:1rem;max-width:500px}
+
+    /* BUTTONS */
+    .btn-k{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--gold),#c47c1a);color:#0a0d14;font-family:var(--fh);font-weight:700;font-size:.9rem;padding:10px 10px;border-radius:50px;border:none;cursor:pointer;transition:var(--t)}
+    .btn-k:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(232,160,52,.35);color:#0a0d14}
+    .btn-g{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--heading);font-family:var(--fh);font-weight:600;font-size:.9rem;padding:13px 28px;border-radius:50px;border:1px solid var(--border2);cursor:pointer;transition:var(--t)}
+    .btn-g:hover{background:var(--surface);color:var(--heading);transform:translateY(-2px)}
+
+    /* NAVBAR */
+    #nb{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 24px;transition:var(--t)}
+    #nb.sc{background:rgba(10,13,20,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+    .nbi{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
+    .logo{font-family:var(--fh);font-size:1.5rem;font-weight:800;color:var(--heading);letter-spacing:-.03em}
+    .logo span{color:var(--gold)}
+    .nlinks{display:flex;align-items:center;gap:32px;list-style:none}
+    .nlinks a{color:var(--text-dim);font-size:.87rem;font-weight:500;transition:var(--t);position:relative}
+    .nlinks a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1.5px;background:var(--gold);transition:var(--t)}
+    .nlinks a:hover,.nlinks a.active{color:var(--heading)}
+    .nlinks a:hover::after,.nlinks a.active::after{width:100%}
+    .ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px}
+    .ham span{display:block;width:24px;height:2px;background:var(--heading);border-radius:2px;transition:var(--t)}
+    .ham.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .ham.open span:nth-child(2){opacity:0}
+    .ham.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    .mmenu{display:none;position:fixed;top:72px;left:0;right:0;background:rgba(10,13,20,.97);backdrop-filter:blur(20px);padding:24px;border-bottom:1px solid var(--border);z-index:999}
+    .mmenu.open{display:block}
+    .mmenu ul{list-style:none}
+    .mmenu ul li{border-bottom:1px solid var(--border)}
+    .mmenu ul li a{display:block;padding:13px 0;color:var(--text);font-weight:500}
+    .mmenu .btn-k{margin-top:18px;width:100%;justify-content:center}
+
+    /* PAGE LOADER */
+    #ld{position:fixed;inset:0;background:var(--bg);z-index:9999;display:flex;align-items:center;justify-content:center;transition:opacity .5s ease,visibility .5s ease}
+    #ld.h{opacity:0;visibility:hidden}
+    .ld-logo{font-family:var(--fh);font-size:2rem;font-weight:800;color:var(--heading);animation:ldp 1.2s ease-in-out infinite}
+    .ld-logo span{color:var(--gold)}
+    @keyframes ldp{0%,100%{opacity:1}50%{opacity:.25}}
+
+    /* HERO */
+    #hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:72px}
+    .h-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse at center,black 40%,transparent 80%)}
+    .orb{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0}
+    .h-content{position:relative;z-index:2}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--gold);font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:22px}
+    .ey-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pd 2s ease-in-out infinite}
+    @keyframes pd{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.6)}}
+    .h-title{font-size:clamp(2.8rem,7vw,5.2rem);font-weight:800;line-height:1.05;letter-spacing:-.04em;margin-bottom:24px}
+    .h-sub{font-size:1.05rem;color:var(--text-dim);max-width:520px;margin-bottom:40px;line-height:1.8}
+    .h-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+    .h-stats{display:flex;gap:44px;margin-top:56px;padding-top:40px;border-top:1px solid var(--border);flex-wrap:wrap}
+    .hs-num{font-family:var(--fh);font-size:2rem;font-weight:800;color:var(--heading);line-height:1}
+    .hs-num span{color:var(--gold)}
+    .hs-lbl{font-size:.8rem;color:var(--text-dim);margin-top:5px}
+
+    /* hero cards */
+    .h-vis{position:relative;height:500px}
+    .hcard{position:absolute;background:var(--surface);border:1px solid var(--border2);border-radius:var(--rl);padding:22px}
+    .hcard-main{right:0;top:50px;width:290px;background:linear-gradient(135deg,var(--surface),#1e2640)}
+    .hcard-a{right:230px;top:0;width:200px;animation:fl1 5s ease-in-out infinite}
+    .hcard-b{right:50px;bottom:60px;width:220px;animation:fl2 6s ease-in-out infinite}
+    @keyframes fl1{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+    @keyframes fl2{0%,100%{transform:translateY(0)}50%{transform:translateY(10px)}}
+    .ci{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-bottom:10px}
+    .ci.g{background:rgba(232,160,52,.15);color:var(--gold)}
+    .ci.b{background:rgba(61,142,240,.15);color:var(--blue2)}
+    .ci.gr{background:rgba(52,211,153,.15);color:#34d399}
+    .clbl{font-size:.68rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:.08em;margin-bottom:3px}
+    .cval{font-family:var(--fh);font-size:1.35rem;font-weight:700;color:var(--heading)}
+    .ctag{display:inline-block;background:rgba(52,211,153,.12);color:#34d399;font-size:.68rem;font-weight:600;padding:3px 10px;border-radius:50px;margin-top:5px}
+    .ctag.g{background:rgba(232,160,52,.12);color:var(--gold)}
+    .cslist{display:flex;flex-direction:column;gap:7px}
+    .csi{display:flex;align-items:center;gap:9px;font-size:.78rem;color:var(--text)}
+    .csdot{width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0}
+    .cmt{font-family:var(--fh);font-size:.88rem;font-weight:700;color:var(--heading);margin-bottom:10px}
+
+    /* hero entrance */
+    .h-content>*{opacity:0;transform:translateY(22px)}
+    .h-content.anim>*{animation:hr .7s cubic-bezier(.4,0,.2,1) forwards}
+    .h-content.anim>*:nth-child(1){animation-delay:.1s}
+    .h-content.anim>*:nth-child(2){animation-delay:.2s}
+    .h-content.anim>*:nth-child(3){animation-delay:.3s}
+    .h-content.anim>*:nth-child(4){animation-delay:.45s}
+    .h-content.anim>*:nth-child(5){animation-delay:.6s}
+    @keyframes hr{to{opacity:1;transform:translateY(0)}}
+    .h-vis{opacity:0;transform:translateX(28px);transition:opacity .8s ease .65s,transform .8s ease .65s}
+    .h-vis.anim{opacity:1;transform:translateX(0)}
+
+    /* MARQUEE */
+    .mq{margin-top: 50px;padding:22px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden}
+    .mq-t{display:flex;gap:60px;animation:mq 22s linear infinite;width:max-content;}
+    .mq-i{display:flex;align-items:center;gap:11px;white-space:nowrap;font-family:var(--fh);font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-dim)}
+    .mq-i i{color:var(--gold);font-size:.85rem}
+    @keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+    /* SERVICES GRID */
+    .sgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);border-radius:var(--rl);overflow:hidden}
+    .sc{background:var(--bg);padding:38px 30px;position:relative;overflow:hidden;transition:var(--t)}
+    .sc::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--glow-gold),transparent 60%);opacity:0;transition:var(--t)}
+    .sc:hover{background:var(--surface)}
+    .sc:hover::before{opacity:1}
+    .sc-n{font-family:var(--fh);font-size:.7rem;font-weight:700;color:var(--text-dim);letter-spacing:.1em;margin-bottom:22px}
+    .sc-iw{width:50px;height:50px;border-radius:13px;background:var(--surface2);display:flex;align-items:center;justify-content:center;font-size:1.3rem;color:var(--gold);margin-bottom:18px;transition:var(--t);position:relative;z-index:1}
+    .sc:hover .sc-iw{background:rgba(232,160,52,.15);transform:scale(1.05)}
+    .sc h3{font-size:1rem;font-weight:700;margin-bottom:10px;position:relative;z-index:1}
+    .sc p{font-size:.86rem;color:var(--text-dim);line-height:1.7;position:relative;z-index:1}
+    .sc-arr{position:absolute;bottom:26px;right:26px;width:34px;height:34px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-dim);font-size:.78rem;opacity:0;transform:translateY(6px);transition:var(--t)}
+    .sc:hover .sc-arr{opacity:1;transform:translateY(0);color:var(--gold);border-color:var(--gold)}
+
+    /* PEP card */
+    .sc-pep{grid-column:span 3;background:linear-gradient(135deg,#130f01,#0f1320);border-top:1px solid rgba(232,160,52,.12);display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+    .pep-bw{display:inline-flex;align-items:center;gap:8px;background:rgba(232,160,52,.1);border:1px solid rgba(232,160,52,.28);color:var(--gold);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border-radius:50px;margin-bottom:18px}
+    .pep-bd{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pd 2s ease-in-out infinite}
+    .sc-pep h3{font-size:1.75rem;font-weight:800;margin-bottom:12px}
+    .sc-pep>div>p{color:var(--text-dim);font-size:.93rem;margin-bottom:26px}
+    .pf-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .pf{display:flex;align-items:flex-start;gap:11px;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:13px;padding:16px;transition:var(--t)}
+    .pf:hover{border-color:rgba(232,160,52,.22);background:rgba(232,160,52,.04)}
+    .pf-i{width:36px;height:36px;border-radius:9px;background:rgba(232,160,52,.1);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0}
+    .pf-t h5{font-size:.84rem;font-weight:700;color:var(--heading);margin-bottom:2px}
+    .pf-t p{font-size:.76rem;color:var(--text-dim);margin:0;line-height:1.5}
+
+    /* ABOUT */
+    .about-g{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+    .about-iw{position:relative}
+    .about-img{width:100%;border-radius:var(--rl);object-fit:cover;aspect-ratio:4/5}
+    .about-fc{position:absolute;bottom:-20px;right:-20px;background:var(--surface);border:1px solid var(--border2);border-radius:var(--r);padding:18px 22px;min-width:190px;box-shadow:0 20px 50px rgba(0,0,0,.4)}
+    .afc-top{font-size:.7rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+    .afc-num{font-family:var(--fh);font-size:2rem;font-weight:800;color:var(--gold);line-height:1}
+    .afc-sub{font-size:.8rem;color:var(--text-dim);margin-top:3px}
+    .about-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(61,142,240,.08);border:1px solid rgba(61,142,240,.2);color:var(--blue2);font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border-radius:50px;margin-bottom:22px}
+    .about-c h2{font-size:clamp(1.9rem,3.2vw,2.7rem);font-weight:800;margin-bottom:18px}
+    .about-c>p{color:var(--text-dim);margin-bottom:32px;font-size:.97rem}
+    .alist{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:36px}
+    .alist li{display:flex;align-items:flex-start;gap:12px;font-size:.92rem;color:var(--text)}
+    .alist li i{color:var(--gold);margin-top:3px;flex-shrink:0}
+    .ametrics{display:flex;gap:28px;padding-top:28px;border-top:1px solid var(--border);flex-wrap:wrap}
+    .am-num{font-family:var(--fh);font-size:1.75rem;font-weight:800;color:var(--heading);line-height:1}
+    .am-num span{color:var(--gold)}
+    .am-lbl{font-size:.76rem;color:var(--text-dim);margin-top:3px}
+
+    /* PROCESS */
+    .pg{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+    .pg::before{content:'';position:absolute;top:35px;left:calc(12.5% + 18px);right:calc(12.5% + 18px);height:1px;background:linear-gradient(90deg,transparent,var(--border2) 20%,var(--border2) 80%,transparent)}
+    .ps{padding:0 22px;text-align:center}
+    .ps-n{width:70px;height:70px;border-radius:50%;background:var(--surface);border:2px solid var(--border2);display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-size:1.15rem;font-weight:800;color:var(--gold);margin:0 auto 26px;position:relative;z-index:1;transition:var(--t)}
+    .ps:hover .ps-n{background:rgba(232,160,52,.1);border-color:var(--gold);box-shadow:0 0 28px rgba(232,160,52,.2)}
+    .ps h4{font-size:.97rem;font-weight:700;margin-bottom:8px}
+    .ps p{font-size:.83rem;color:var(--text-dim);line-height:1.6}
+
+    /* PRODEV cards */
+    .pd-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .pd-card{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:var(--rl);padding:26px;transition:var(--t)}
+    .pd-card:hover{border-color:var(--border2);background:var(--surface);transform:translateY(-4px)}
+    .pd-icon{width:48px;height:48px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:16px}
+    .pd-card h5{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:8px;font-family:var(--fh)}
+    .pd-card p{font-size:.83rem;color:var(--text-dim);margin:0;line-height:1.6}
+
+    /* TESTI */
+    .swiper-testi{padding:16px 0 52px}
+    .tcard{background:var(--surface);border:1px solid var(--border);border-radius:var(--rl);padding:32px;height:100%;transition:var(--t);position:relative;overflow:hidden}
+    .tcard::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),transparent);opacity:0;transition:var(--t)}
+    .tcard:hover{border-color:var(--border2);transform:translateY(-4px)}
+    .tcard:hover::before{opacity:1}
+    .tq{font-size:2.2rem;color:var(--gold);line-height:1;margin-bottom:14px;opacity:.35;font-family:Georgia,serif}
+    .tt{font-size:.9rem;color:var(--text);line-height:1.8;margin-bottom:24px}
+    .ts{color:var(--gold);font-size:.76rem;letter-spacing:2px;margin-bottom:18px}
+    .ta{display:flex;align-items:center;gap:12px}
+    .tav{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--border2)}
+    .tn{font-family:var(--fh);font-size:.93rem;font-weight:700;color:var(--heading)}
+    .tr{font-size:.76rem;color:var(--text-dim)}
+    .swiper-pagination-bullet{background:var(--text-dim)!important;opacity:1!important}
+    .swiper-pagination-bullet-active{background:var(--gold)!important;width:22px!important;border-radius:4px!important}
+
+    /* CONTACT */
+    .cg{display:grid;grid-template-columns:1fr 1.55fr;gap:56px;align-items:start}
+    .ci-info h3{font-size:1.75rem;font-weight:800;margin-bottom:14px}
+    .ci-info>p{color:var(--text-dim);margin-bottom:36px;line-height:1.8}
+    .citems{display:flex;flex-direction:column;gap:18px}
+    .citem{display:flex;gap:14px;align-items:flex-start}
+    .citem-i{width:42px;height:42px;border-radius:11px;background:rgba(232,160,52,.1);border:1px solid rgba(232,160,52,.2);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:.95rem;flex-shrink:0}
+    .citem-lbl{font-size:.72rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px}
+    .citem-val{font-size:.9rem;color:var(--heading);font-weight:500}
+    .cfw{background:var(--surface);border:1px solid var(--border);border-radius:var(--rl);padding:40px}
+    .cfw h4{font-size:1.15rem;font-weight:700;margin-bottom:26px}
+    .frow{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+    .fg{margin-bottom:14px}
+    .fg label{display:block;font-size:.76rem;font-weight:600;color:var(--text-dim);text-transform:uppercase;letter-spacing:.06em;margin-bottom:7px}
+    .fi{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:9px;padding:12px 15px;color:var(--heading);font-family:var(--fb);font-size:.9rem;transition:var(--t);outline:none}
+    .fi::placeholder{color:var(--text-dim)}
+    .fi:focus{border-color:rgba(232,160,52,.4);box-shadow:0 0 0 3px rgba(232,160,52,.08)}
+    select.fi{appearance:none;cursor:pointer}
+    textarea.fi{resize:vertical;min-height:110px}
+    .fsub{width:100%;margin-top:4px}
+
+    /* FOOTER */
+    #footer{border-top:1px solid var(--border);padding:56px 0 0}
+    .fg-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.4fr;gap:52px;padding-bottom:52px;border-bottom:1px solid var(--border)}
+    .fb p{color:var(--text-dim);font-size:.88rem;margin:14px 0 22px;line-height:1.7}
+    .fsoc{display:flex;gap:9px}
+    .fsoc a{width:36px;height:36px;border-radius:9px;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-dim);font-size:.86rem;transition:var(--t)}
+    .fsoc a:hover{background:rgba(232,160,52,.1);border-color:rgba(232,160,52,.3);color:var(--gold)}
+    .fc h5{font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-dim);margin-bottom:18px}
+    .fc ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+    .fc ul li a{font-size:.88rem;color:var(--text-dim);transition:var(--t)}
+    .fc ul li a:hover{color:var(--gold);padding-left:4px}
+    .fnl p{font-size:.86rem;color:var(--text-dim);margin-bottom:14px;line-height:1.6}
+    .niw{display:flex;gap:7px}
+    .ni{flex:1;background:var(--surface);border:1px solid var(--border);border-radius:9px;padding:10px 13px;color:var(--heading);font-family:var(--fb);font-size:.86rem;outline:none;transition:var(--t)}
+    .ni::placeholder{color:var(--text-dim)}
+    .ni:focus{border-color:rgba(232,160,52,.4)}
+    .nb2{background:var(--gold);border:none;color:#0a0d14;font-weight:700;font-size:.8rem;padding:10px 16px;border-radius:9px;cursor:pointer;transition:var(--t);white-space:nowrap}
+    .nb2:hover{background:var(--gold2)}
+    .fbot{display:flex;align-items:center;justify-content:space-between;padding:22px 0;font-size:.8rem;color:var(--text-dim)}
+
+    /* SCROLL TOP */
+    #st{position:fixed;bottom:26px;right:26px;width:42px;height:42px;border-radius:11px;background:var(--surface);border:1px solid var(--border2);color:var(--text-dim);display:flex;align-items:center;justify-content:center;font-size:1rem;cursor:pointer;opacity:0;transform:translateY(10px);transition:var(--t);z-index:990}
+    #st.v{opacity:1;transform:translateY(0)}
+    #st:hover{color:var(--gold);border-color:rgba(232,160,52,.3);background:rgba(232,160,52,.08)}
+
+    /* RESPONSIVE */
+    @media(max-width:1024px){
+      .sgrid{grid-template-columns:repeat(2,1fr)}
+      .sc-pep{grid-column:span 2;grid-template-columns:1fr}
+      .pg{grid-template-columns:repeat(2,1fr);gap:36px}
+      .pg::before{display:none}
+      .fg-grid{grid-template-columns:1fr 1fr}
+      .cg{grid-template-columns:1fr}
+      .pd-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:768px){
+      .section{padding:64px 0}
+      .nlinks,.nav-cta{display:none}
+      .ham{display:flex}
+      .h-vis{display:none}
+      .h-title{font-size:2.6rem}
+      .about-g{grid-template-columns:1fr;gap:36px}
+      .about-fc{display:none}
+      .sgrid{grid-template-columns:1fr}
+      .sc-pep{grid-column:span 1}
+      .pf-grid{grid-template-columns:1fr}
+      .pg{grid-template-columns:1fr}
+      .fg-grid{grid-template-columns:1fr;gap:28px}
+      .fbot{flex-direction:column;gap:7px;text-align:center}
+      .h-stats{gap:20px}
+      .frow{grid-template-columns:1fr}
+      .cfw{padding:22px 16px}
+      .pd-grid{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:480px){
+      .pd-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="ld"><div class="ld-logo">Knowletive<span></span></div></div>
+
+<!-- NAVBAR -->
+<nav id="nb">
+  <div class="nbi">
+    <a href="#hero" class="logo">Knowletive<span></span></a>
+    <ul class="nlinks">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#pep">PEP</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="btn-k" style="margin-left:18px;display:flex;" id="navCta">Get Started <i class="bi bi-arrow-right"></i></a>
+    <div class="ham" id="ham"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mmenu" id="mm">
+  <ul>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#pep">PEP Program</a></li>
+    <li><a href="#process">How It Works</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="btn-k">Get Started <i class="bi bi-arrow-right"></i></a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="h-grid"></div>
+  <div class="orb" style="width:600px;height:600px;top:-200px;left:-180px;background:rgba(232,160,52,.14)"></div>
+  <div class="orb" style="width:500px;height:500px;bottom:-100px;right:-60px;background:rgba(61,142,240,.13)"></div>
+
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center">
+
+      <div class="h-content" id="hc">
+        <div class="eyebrow"><div class="ey-dot"></div>Your Growth Partner Since Day One</div>
+        <h1 class="h-title">
+          Guiding Careers.<br>
+          <span class="gtext">Shaping Futures.</span><br>
+          Growing Business.
+        </h1>
+        <p class="h-sub">Expert career counseling, overseas education guidance, business consulting, and India's most impactful internship-training program — all under one roof.</p>
+        <div class="h-actions">
+          <a href="#services" class="btn-k">Explore Services <i class="bi bi-arrow-right"></i></a>
+          <a href="#contact" class="btn-g">Free Consultation</a>
+        </div>
+        <div class="h-stats">
+          <div><div class="hs-num">500<span>+</span></div><div class="hs-lbl">Students Guided</div></div>
+          <div><div class="hs-num">30<span>+</span></div><div class="hs-lbl">Partner Universities</div></div>
+          <div><div class="hs-num">15<span>+</span></div><div class="hs-lbl">Countries</div></div>
+          <div><div class="hs-num">200<span>+</span></div><div class="hs-lbl">Business Clients</div></div>
+        </div>
+      </div>
+
+      <div class="h-vis" id="hv">
+        <div class="hcard hcard-a">
+          <div class="ci b"><i class="bi bi-globe2"></i></div>
+          <div class="clbl">Overseas Education</div>
+          <div class="cval">15+ Countries</div>
+          <div class="ctag">Active Support</div>
+        </div>
+        <div class="hcard hcard-main">
+          <div class="cmt">Our Services</div>
+          <div class="cslist">
+            <div class="csi"><div class="csdot"></div>Career Guidance</div>
+            <div class="csi"><div class="csdot" style="background:var(--blue2)"></div>Business Edu. Consulting</div>
+            <div class="csi"><div class="csdot" style="background:#34d399"></div>Overseas Education</div>
+            <div class="csi"><div class="csdot" style="background:#a78bfa"></div>Career &amp; Admission</div>
+            <div class="csi"><div class="csdot" style="background:#f87171"></div>Business Consultation</div>
+            <div class="csi"><div class="csdot"></div>PEP – Training &amp; Internship</div>
+          </div>
+        </div>
+        <div class="hcard hcard-b">
+          <div class="ci g"><i class="bi bi-award"></i></div>
+          <div class="clbl">PEP Program</div>
+          <div class="cval">Now Enrolling</div>
+          <div class="ctag g">Flagship Program</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="mq">
+  <div class="mq-t">
+    <div class="mq-i"><i class="bi bi-compass"></i>Career Guidance</div>
+    <div class="mq-i"><i class="bi bi-briefcase"></i>Business Education</div>
+    <div class="mq-i"><i class="bi bi-globe2"></i>Overseas Education</div>
+    <div class="mq-i"><i class="bi bi-mortarboard"></i>Admission Counseling</div>
+    <div class="mq-i"><i class="bi bi-graph-up-arrow"></i>Business Consultation</div>
+    <div class="mq-i"><i class="bi bi-award"></i>PEP Program</div>
+    <div class="mq-i"><i class="bi bi-person-workspace"></i>Professional Development</div>
+    <div class="mq-i"><i class="bi bi-building"></i>Internship Placement</div>
+    <div class="mq-i"><i class="bi bi-compass"></i>Career Guidance</div>
+    <div class="mq-i"><i class="bi bi-briefcase"></i>Business Education</div>
+    <div class="mq-i"><i class="bi bi-globe2"></i>Overseas Education</div>
+    <div class="mq-i"><i class="bi bi-mortarboard"></i>Admission Counseling</div>
+    <div class="mq-i"><i class="bi bi-graph-up-arrow"></i>Business Consultation</div>
+    <div class="mq-i"><i class="bi bi-award"></i>PEP Program</div>
+    <div class="mq-i"><i class="bi bi-person-workspace"></i>Professional Development</div>
+    <div class="mq-i"><i class="bi bi-building"></i>Internship Placement</div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services" class="section">
+  <div class="container">
+    <div class="sh" data-aos="fade-up">
+      <div class="pill"><i class="bi bi-grid-3x3-gap-fill"></i>What We Offer</div>
+      <h2>Comprehensive Services<br><span class="gtext">For Every Stage</span></h2>
+      <p>From first career choices to global education and business growth — we're with you at every milestone.</p>
+    </div>
+    <div class="sgrid" data-aos="fade-up" data-aos-delay="100">
+
+      <div class="sc">
+        <div class="sc-n">01</div>
+        <div class="sc-iw"><i class="bi bi-compass"></i></div>
+        <h3>Career Guidance</h3>
+        <p>Personalized counseling to discover the right path. Aptitude assessments, goal-setting, and a clear roadmap tailored to your strengths.</p>
+        <div class="sc-arr"><i class="bi bi-arrow-right"></i></div>
+      </div>
+
+      <div class="sc">
+        <div class="sc-n">02</div>
+        <div class="sc-iw"><i class="bi bi-briefcase"></i></div>
+        <h3>Business Education Consulting</h3>
+        <p>Expert guidance for MBA, executive programs, and business certifications. We match you with institutions aligned with your ambitions.</p>
+        <div class="sc-arr"><i class="bi bi-arrow-right"></i></div>
+      </div>
+
+      <div class="sc">
+        <div class="sc-n">03</div>
+        <div class="sc-iw"><i class="bi bi-globe2"></i></div>
+        <h3>Overseas Education</h3>
+        <p>End-to-end support — country selection, university shortlisting, visa, scholarships, pre-departure orientation, and post-arrival help across 15+ countries.</p>
+        <div class="sc-arr"><i class="bi bi-arrow-right"></i></div>
+      </div>
+
+      <div class="sc">
+        <div class="sc-n">04</div>
+        <div class="sc-iw"><i class="bi bi-mortarboard"></i></div>
+        <h3>Education Guidance</h3>
+        <p>Academic counseling for all levels — from school streams to undergrad and postgrad programs. Get matched with the right course and scholarship.</p>
+        <div class="sc-arr"><i class="bi bi-arrow-right"></i></div>
+      </div>
+
+      <div class="sc">
+        <div class="sc-n">05</div>
+        <div class="sc-iw"><i class="bi bi-person-check"></i></div>
+        <h3>Career &amp; Admission Counseling</h3>
+        <p>SOP writing, interview prep, college shortlisting, application strategy, and profile building for top institutions worldwide — crafted for results.</p>
+        <div class="sc-arr"><i class="bi bi-arrow-right"></i></div>
+      </div>
+
+      <div class="sc">
+        <div class="sc-n">06</div>
+        <div class="sc-iw"><i class="bi bi-graph-up-arrow"></i></div>
+        <h3>Business Consultation</h3>
+        <p>Strategic consulting for startups and enterprises — business planning, market entry, operational efficiency, and sustainable growth advisory.</p>
+        <div class="sc-arr"><i class="bi bi-arrow-right"></i></div>
+      </div>
+
+      <!-- PEP -->
+      <div class="sc sc-pep" id="pep">
+        <div>
+          <div class="pep-bw"><div class="pep-bd"></div>Flagship Program</div>
+          <h3>Professional Enhancement Program <span class="gtext">(PEP)</span></h3>
+          <p>PEP is Knowletive's signature initiative — combining structured professional training with real-world internship experience to make you career-ready from day one.</p>
+          <a href="#contact" class="btn-k">Enroll in PEP <i class="bi bi-arrow-right"></i></a>
+        </div>
+        <div class="pf-grid">
+          <div class="pf">
+            <div class="pf-i"><i class="bi bi-laptop"></i></div>
+            <div class="pf-t"><h5>Skills Training</h5><p>Industry-aligned workshops on technical and soft skills</p></div>
+          </div>
+          <div class="pf">
+            <div class="pf-i"><i class="bi bi-building"></i></div>
+            <div class="pf-t"><h5>Internship Placement</h5><p>Hands-on experience at top companies and organizations</p></div>
+          </div>
+          <div class="pf">
+            <div class="pf-i"><i class="bi bi-people"></i></div>
+            <div class="pf-t"><h5>Expert Mentorship</h5><p>1-on-1 guidance from experienced industry professionals</p></div>
+          </div>
+          <div class="pf">
+            <div class="pf-i"><i class="bi bi-patch-check"></i></div>
+            <div class="pf-t"><h5>Certification</h5><p>Industry-recognized program completion certificate</p></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section" style="background:var(--bg2)">
+  <div class="container">
+    <div class="about-g">
+      <div class="about-iw" data-aos="fade-right">
+        <img src="assets/img/about.jpg" alt="About Knowletive" class="about-img">
+        <div class="about-fc">
+          <div class="afc-top">Students Placed</div>
+          <div class="afc-num">500+</div>
+          <div class="afc-sub">Across 15 countries</div>
+        </div>
+      </div>
+      <div class="about-c" data-aos="fade-left" data-aos-delay="100">
+        <div class="about-tag"><i class="bi bi-info-circle"></i>Who We Are</div>
+        <h2>Where Ambition Meets<br><span class="gtextb">Expert Guidance</span></h2>
+        <p>Knowletive is a premier consulting firm dedicated to empowering individuals and organizations through education, career development, and business excellence. We bridge the gap between ambition and achievement.</p>
+        <ul class="alist">
+          <li><i class="bi bi-check-circle-fill"></i><span>Our team brings deep expertise across career counseling, overseas education, and business strategy.</span></li>
+          <li><i class="bi bi-check-circle-fill"></i><span>We operate with a global network spanning universities, companies, and institutions in 15+ countries.</span></li>
+          <li><i class="bi bi-check-circle-fill"></i><span>Every client receives a personalized strategy — no templates, no shortcuts, just results.</span></li>
+          <li><i class="bi bi-check-circle-fill"></i><span>From first consultation to final outcome, we walk alongside you at every single step.</span></li>
+        </ul>
+        <div class="ametrics">
+          <div><div class="am-num">500<span>+</span></div><div class="am-lbl">Students Guided</div></div>
+          <div><div class="am-num">30<span>+</span></div><div class="am-lbl">Universities</div></div>
+          <div><div class="am-num">98<span>%</span></div><div class="am-lbl">Satisfaction Rate</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process" class="section">
+  <div class="container">
+    <div class="sh text-center" data-aos="fade-up" style="max-width:540px;margin:0 auto 60px;text-align:center">
+      <div class="pill b" style="justify-content:center"><i class="bi bi-arrow-repeat"></i>How It Works</div>
+      <h2>Your Journey with<br><span class="gtext">Knowletive</span></h2>
+      <p style="margin:0 auto">A clear, simple process designed to get you from where you are to where you want to be.</p>
+    </div>
+    <div class="pg" data-aos="fade-up" data-aos-delay="100">
+      <div class="ps">
+        <div class="ps-n">01</div>
+        <h4>Free Consultation</h4>
+        <p>Schedule a no-obligation discovery call. We understand your goals, challenges, and aspirations.</p>
+      </div>
+      <div class="ps">
+        <div class="ps-n">02</div>
+        <h4>Personalized Plan</h4>
+        <p>Our experts craft a tailored roadmap — whether it's a career path, study plan, or business strategy.</p>
+      </div>
+      <div class="ps">
+        <div class="ps-n">03</div>
+        <h4>Active Execution</h4>
+        <p>We work alongside you — preparing applications, documents, pitches, or training modules.</p>
+      </div>
+      <div class="ps">
+        <div class="ps-n">04</div>
+        <h4>Achieve Your Goal</h4>
+        <p>Placement secured. Admission confirmed. Business launched. We celebrate your win with you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROFESSIONAL DEVELOPMENT -->
+<section class="section" style="background:var(--bg2)">
+  <div class="container">
+    <div class="sh" data-aos="fade-up">
+      <div class="pill"><i class="bi bi-person-workspace"></i>Grow Your Career</div>
+      <h2>Professional Development<br><span class="gtext">Support</span></h2>
+      <p>Structured programs to sharpen your professional edge and fast-track your career advancement.</p>
+    </div>
+    <div class="pd-grid" data-aos="fade-up" data-aos-delay="100">
+      <div class="pd-card">
+        <div class="pd-icon" style="background:rgba(232,160,52,.1);color:var(--gold)"><i class="bi bi-laptop"></i></div>
+        <h5>Skill Development</h5>
+        <p>Workshops aligned with current industry demands and evolving job market requirements.</p>
+      </div>
+      <div class="pd-card">
+        <div class="pd-icon" style="background:rgba(61,142,240,.1);color:var(--blue2)"><i class="bi bi-file-person"></i></div>
+        <h5>Resume &amp; Profile Building</h5>
+        <p>Expert help crafting standout resumes, LinkedIn profiles, and professional portfolios.</p>
+      </div>
+      <div class="pd-card">
+        <div class="pd-icon" style="background:rgba(52,211,153,.1);color:#34d399"><i class="bi bi-chat-square-text"></i></div>
+        <h5>Interview Coaching</h5>
+        <p>Mock interviews, feedback sessions, and preparation for technical and HR rounds.</p>
+      </div>
+      <div class="pd-card">
+        <div class="pd-icon" style="background:rgba(167,139,250,.1);color:#a78bfa"><i class="bi bi-diagram-3"></i></div>
+        <h5>Networking Support</h5>
+        <p>Connect with industry professionals, alumni, and career fairs to build your network.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" class="section">
+  <div class="container">
+    <div class="sh" data-aos="fade-up">
+      <div class="pill b"><i class="bi bi-chat-quote"></i>Testimonials</div>
+      <h2>What Our Clients<br><span class="gtextb">Say About Us</span></h2>
+      <p>Real stories from students, professionals, and business owners we've helped succeed.</p>
+    </div>
+    <div class="swiper swiper-testi" data-aos="fade-up" data-aos-delay="100">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="tcard">
+            <div class="tq">"</div>
+            <p class="tt">Knowletive helped me navigate the entire overseas education process seamlessly. From university selection to visa, their team was exceptional. I'm now pursuing my Master's in Canada!</p>
+            <div class="ts">★★★★★</div>
+            <div class="ta">
+              <img src="assets/img/testimonials/testimonials-1.jpg" class="tav" alt="">
+              <div><div class="tn">Priya Sharma</div><div class="tr">Master's Student, University of Toronto</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="tcard">
+            <div class="tq">"</div>
+            <p class="tt">The PEP program transformed my approach to business. The combination of training and real internship experience gave me the confidence to launch my own startup.</p>
+            <div class="ts">★★★★★</div>
+            <div class="ta">
+              <img src="assets/img/testimonials/testimonials-2.jpg" class="tav" alt="">
+              <div><div class="tn">Rahul Mehta</div><div class="tr">Entrepreneur &amp; PEP Graduate</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="tcard">
+            <div class="tq">"</div>
+            <p class="tt">I was confused about my career path after graduation. Knowletive's counselors helped me identify my strengths and land a role at a top MNC within 3 months.</p>
+            <div class="ts">★★★★★</div>
+            <div class="ta">
+              <img src="assets/img/testimonials/testimonials-3.jpg" class="tav" alt="">
+              <div><div class="tn">Ananya Patel</div><div class="tr">Software Engineer, Top MNC</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="tcard">
+            <div class="tq">"</div>
+            <p class="tt">The business consultation from Knowletive was a game-changer. Their strategic advice helped us streamline operations and scale to new markets successfully.</p>
+            <div class="ts">★★★★★</div>
+            <div class="ta">
+              <img src="assets/img/testimonials/testimonials-4.jpg" class="tav" alt="">
+              <div><div class="tn">Vikram Singh</div><div class="tr">Founder, Tech Startup</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="tcard">
+            <div class="tq">"</div>
+            <p class="tt">Got into my dream university in the UK thanks to Knowletive's admission counseling. Their SOP guidance and interview prep were absolutely top-notch.</p>
+            <div class="ts">★★★★★</div>
+            <div class="ta">
+              <img src="assets/img/testimonials/testimonials-5.jpg" class="tav" alt="">
+              <div><div class="tn">Sneha Iyer</div><div class="tr">MBA Student, University of Manchester</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section" style="background:var(--bg2)">
+  <div class="container">
+    <div class="sh" data-aos="fade-up">
+      <div class="pill"><i class="bi bi-envelope"></i>Get In Touch</div>
+      <h2>Start Your Journey<br><span class="gtext">Today</span></h2>
+    </div>
+    <div class="cg" data-aos="fade-up" data-aos-delay="100">
+      <div class="ci-info">
+        <h3>Let's talk about your goals.</h3>
+        <p>Whether you're a student, professional, or business owner — our team is ready to create a personalized plan for you. Reach out today for a free consultation.</p>
+        <div class="citems">
+          <div class="citem"><div class="citem-i"><i class="bi bi-geo-alt"></i></div><div><div class="citem-lbl">Location</div><div class="citem-val">Knowletive Services, 4th floor, HQ9C+JGV, DS IKON, above Image provision, above Feast India, Laxman Nagar, Baner, Pune, Maharashtra 411045</div></div></div>
+          <div class="citem"><div class="citem-i"><i class="bi bi-telephone"></i></div><div><div class="citem-lbl">Call Us</div><div class="citem-val">+91 9970600116</div></div></div>
+          <div class="citem"><div class="citem-i"><i class="bi bi-envelope"></i></div><div><div class="citem-lbl">Email</div><div class="citem-val">knowletive@gmail.com</div></div></div>
+          <div class="citem"><div class="citem-i"><i class="bi bi-clock"></i></div><div><div class="citem-lbl">Hours</div><div class="citem-val">Mon – Sat, 9 AM – 7 PM IST</div></div></div>
+        </div>
+      </div>
+      <div class="cfw">
+        <h4>Send Us a Message</h4>
+        <form action="forms/contact.php" method="post" class="php-email-form">
+          <div class="frow">
+            <div class="fg" style="margin-bottom:0"><label>Your Name</label><input type="text" name="name" class="fi" placeholder="Full name" required></div>
+            <div class="fg" style="margin-bottom:0"><label>Email</label><input type="email" name="email" class="fi" placeholder="you@example.com" required></div>
+          </div>
+          <div class="fg"><label>Phone</label><input type="tel" name="phone" class="fi" placeholder="+91 00000 00000"></div>
+          <div class="fg">
+            <label>I'm Interested In</label>
+            <select name="service" class="fi">
+              <option value="">Select a service...</option>
+              <option>Career Guidance</option>
+              <option>Business Education Consulting</option>
+              <option>Overseas Education</option>
+              <option>Education Guidance</option>
+              <option>Career &amp; Admission Counseling</option>
+              <option>Business Consultation</option>
+              <option>Professional Development Support</option>
+              <option>PEP – Training &amp; Internship</option>
+            </select>
+          </div>
+          <div class="fg"><label>Message</label><textarea name="message" class="fi" placeholder="Tell us about your goals and how we can help..."></textarea></div>
+          <div class="loading">Loading</div>
+          <div class="error-message"></div>
+          <div class="sent-message">Your message has been sent. Thank you!</div>
+          <button type="submit" class="btn-k fsub">Send Message <i class="bi bi-arrow-right"></i></button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="container">
+    <div class="fg-grid">
+      <div class="fb">
+        <a href="#hero" class="logo" style="font-size:1.55rem">Knowletive<span></span></a>
+        <p>Your trusted partner in career growth, education consulting, and business development. Empowering individuals and organizations to reach their full potential.</p>
+        <div class="fsoc">
+          <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+        </div>
+      </div>
+      <div class="fc">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="#services">Career Guidance</a></li>
+          <li><a href="#services">Business Education</a></li>
+          <li><a href="#services">Overseas Education</a></li>
+          <li><a href="#services">Admission Counseling</a></li>
+          <li><a href="#services">Business Consultation</a></li>
+        </ul>
+      </div>
+      <div class="fc">
+        <h5>Programs</h5>
+        <ul>
+          <li><a href="#pep">PEP Program</a></li>
+          <li><a href="#services">Skills Training</a></li>
+          <li><a href="#services">Internship Placement</a></li>
+          <li><a href="#services">Pro Development</a></li>
+          <li><a href="#contact">Free Consultation</a></li>
+        </ul>
+      </div>
+      <div class="fc fnl">
+        <h5>Stay Updated</h5>
+        <p>Get career insights, program updates, and expert tips straight to your inbox.</p>
+        <div class="niw">
+          <input type="email" class="ni" placeholder="Your email">
+          <button class="nb2">Subscribe</button>
+        </div>
+      </div>
+    </div>
+    <div class="fbot">
+      <span>© 2026 Knowletive. All Rights Reserved.</span>
+      <span>Designed with <span style="color:var(--gold)">♥</span> for your growth</span>
+    </div>
+  </div>
+</footer>
+
+<a href="#hero" id="st" aria-label="Back to top"><i class="bi bi-arrow-up"></i></a>
+
+<!-- Scripts -->
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/aos/aos.js"></script>
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+<script src="assets/vendor/php-email-form/validate.js"></script>
+
+<script>
+  // Loader
+  window.addEventListener('load',()=>{
+    setTimeout(()=>{
+      document.getElementById('ld').classList.add('h');
+      document.getElementById('hc').classList.add('anim');
+      document.getElementById('hv').classList.add('anim');
+    },700);
+  });
+
+  // AOS
+  AOS.init({duration:700,easing:'ease-out-cubic',once:true,offset:50});
+
+  // Navbar scroll
+  const nb=document.getElementById('nb');
+  const st=document.getElementById('st');
+  window.addEventListener('scroll',()=>{
+    nb.classList.toggle('sc',window.scrollY>20);
+    st.classList.toggle('v',window.scrollY>300);
+  });
+
+  // Hamburger
+  const ham=document.getElementById('ham');
+  const mm=document.getElementById('mm');
+  ham.addEventListener('click',()=>{ham.classList.toggle('open');mm.classList.toggle('open')});
+  mm.querySelectorAll('a').forEach(l=>l.addEventListener('click',()=>{ham.classList.remove('open');mm.classList.remove('open')}));
+
+  // Swiper
+  new Swiper('.swiper-testi',{
+    loop:true,speed:700,
+    autoplay:{delay:4500,disableOnInteraction:false},
+    slidesPerView:1,spaceBetween:22,
+    pagination:{el:'.swiper-pagination',clickable:true},
+    breakpoints:{640:{slidesPerView:1},900:{slidesPerView:2},1200:{slidesPerView:3}}
+  });
+
+  // PureCounter
+  new PureCounter();
+
+  // Active nav
+  const secs=document.querySelectorAll('section[id]');
+  const nls=document.querySelectorAll('.nlinks a');
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        nls.forEach(l=>l.classList.remove('active'));
+        const a=document.querySelector(`.nlinks a[href="#${e.target.id}"]`);
+        if(a)a.classList.add('active');
+      }
+    });
+  },{threshold:0.4});
+  secs.forEach(s=>obs.observe(s));
+</script>
+</body>
+</html>
